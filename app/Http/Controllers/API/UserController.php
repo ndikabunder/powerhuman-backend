@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API;
 
 use Exception;
 use App\Models\User;
-use Mockery\Expectation;
 use Illuminate\Http\Request;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
@@ -48,7 +47,7 @@ class UserController extends Controller
                 'token_type'   => 'Bearer',
                 'data'         => $user
             ], 'Login Success');
-        } catch (Expectation $error) {
+        } catch (Exception $error) {
             // TODO: Error Response
             return ResponseFormatter::error('Authentication Failed');
         }
