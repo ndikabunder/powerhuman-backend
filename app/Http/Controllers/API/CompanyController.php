@@ -100,7 +100,7 @@ class CompanyController extends Controller
             // TODO: Update Company
             $company->update([
                 'name' => $request->name,
-                'logo' => $path
+                'logo' => isset($path) ? $path : $company->logo
             ]);
 
             // TODO: Response Success Update
