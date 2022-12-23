@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class UpdateTeamRequest extends FormRequest
+class UpdateRoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,6 @@ class UpdateTeamRequest extends FormRequest
     {
         return [
             'name' => 'nullable|string|max:255',
-            'icon' => 'nullable|image|mimes:png,jpg,svg,jpeg,gif|max:2048',
             'company_id' => 'required|integer|exists:companies,id'
         ];
     }

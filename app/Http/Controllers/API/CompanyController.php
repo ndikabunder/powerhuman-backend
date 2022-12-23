@@ -16,8 +16,8 @@ class CompanyController extends Controller
 {
     public function fetch(Request $request)
     {
-        $id = $request->input('id');
-        $name = $request->input('name');
+        $id    = $request->input('id');
+        $name  = $request->input('name');
         $limit = $request->input('limit', 10);
 
         $companyQuery = Company::with(['users'])
