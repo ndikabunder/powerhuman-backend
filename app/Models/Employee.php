@@ -16,7 +16,7 @@ class Employee extends Model
      * @var string[]
      */
     protected $fillable = [
-        'men',
+        'name',
         'email',
         'gander',
         'age',

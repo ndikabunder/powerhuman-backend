@@ -17,7 +17,7 @@ class TeamController extends Controller
         // TODO: Get Params
         $id    = $request->input('id');
         $name  = $request->input('name');
-        $limit = $request->input('limit');
+        $limit = $request->input('limit', 10);
 
         // TODO: Get all Team data
         $teamQuery = Team::query();

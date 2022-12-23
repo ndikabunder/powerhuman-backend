@@ -17,14 +17,15 @@ class RoleController extends Controller
         // TODO: Get Params
         $id    = $request->input('id');
         $name  = $request->input('name');
-        $limit = $request->input('limit');
+        $limit = $request->input('limit', 10);
+        $with_responsibilities = $request->input('with_responsibilities', false);
 
         // TODO: Get all Role data
         $roleQuery = Role::query();
 
         // TODO: Get Single Data Role
         if ($id) {
-            $role = $roleQuery->find($id);
+            $role = $roleQuery->with('responsibilities')->find($id);
 
             if ($role) {
                 return ResponseFormatter::success('$role', 'Role Found');
@@ -39,6 +40,10 @@ class RoleController extends Controller
         // TODO: Search by name
         if ($name) {
             $roles->where('name', 'like', '%' . $name . '%');
+        }
+
+        if ($with_responsibilities) {
+            $roles->with('responsibilities');
         }
 
         return ResponseFormatter::success(
